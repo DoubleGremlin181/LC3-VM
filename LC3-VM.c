@@ -244,7 +244,7 @@ int main(int argc, char const *argv[]) {
             }
             case OP_JMP: {
                 uint16_t r1 = (instr >> 6) & 0x7;
-                reg[R_PC] = r1;
+                reg[R_PC] = reg[r1];
 
                 break;
             }
@@ -341,7 +341,7 @@ int main(int argc, char const *argv[]) {
                         uint16_t* c = memory + reg[R_R0];
                         while (*c) {
                             putc((char)*c, stdout);
-                            ++c;
+                            c++;
                         }
                         fflush(stdout);
                         break;
